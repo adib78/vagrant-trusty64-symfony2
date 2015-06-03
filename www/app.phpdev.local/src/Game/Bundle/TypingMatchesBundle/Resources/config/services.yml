@@ -1,0 +1,4 @@
+services:
+#    game_typing_matches.example:
+#        class: Game\Bundle\TypingMatchesBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

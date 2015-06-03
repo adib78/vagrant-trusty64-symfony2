@@ -1,3 +1,7 @@
+game_typing_matches:
+    resource: "@GameTypingMatchesBundle/Resources/config/routing.yml"
+    prefix:   /
+
 app:
     resource: @AppBundle/Controller/
     type:     annotation
