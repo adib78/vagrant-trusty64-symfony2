@@ -1,0 +1,6 @@
+<form action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST" class="fos_user_profile_edit">
+  {{ form_widget(form) }}
+  <a href="{{ path('fos_user_change_password') }}" class="btn">{% trans %}Zmiana hasła{% endtrans %}</a>
+  <button type="submit" class="btn btn-success">{% trans %}form_save{% endtrans %}</button>
+
+</form>

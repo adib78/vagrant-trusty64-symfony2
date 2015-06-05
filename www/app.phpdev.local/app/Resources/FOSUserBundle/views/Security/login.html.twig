@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>{% block title %}Typing Matches{% endblock %}</title>
+  {% block stylesheets %}{% endblock %}
+  <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+  <!-- Bootstrap core CSS -->
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="/css/main.css" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <link rel="stylesheet" href="/css/font-awesome.min.css">
+</head>
+
+<div class="container-fluid">
+  {% block header %}
+    {% include('::header.html.twig') %}
+  {% endblock %}
+  <div class="row"id="login-baner">
+    <div class="container"  >
+      <div class="col-lg-7 col-md-7 col-sm-12" id="login-baner-description">
+        <h2>The online<br>typing manager<br>and planner</h2>
+      </div>
+      <div class="col-lg-5 col-md-5 col-sm-12">
+
+        <form action="{{ path("fos_user_security_check") }}" method="post" class="form-signin" accept-charset="UTF-8">
+          <h2 class="form-signin-heading">{% trans %}log_in{% endtrans %}</h2>
+          <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+          {% if error %}
+            <div class="alert alert-error">
+              <div>{{ error|trans({}, 'FOSUserBundle') }}</div>
+            </div>
+          {% endif %}
+          <label for="username">{{ 'security.login.username'|trans }}</label>
+          <input type="text" id="username" name="_username" value="{{ last_username }}" class="form-control" required autofocus placeholder="{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}"/>
+          <label for="password">{{ 'security.login.password'|trans }}</label>
+          <input type="password" id="password" name="_password" required class="form-control" placeholder="{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}"/>
+          {# <label class="checkbox"> #}
+          {# <input type="checkbox" id="remember_me" name="_remember_me" value="on" />  {% trans %}Zapamiętaj mnie{% endtrans %} #}
+          </label>
+          <button class="btn btn-lg btn-primary btn-block pull-left btn-submit" type="submit">{% trans %}log_in{% endtrans %}</button>
+          {# <a href="{{ path('fos_user_resetting_request') }}">{% trans %}Przypomnij hasło{% endtrans %}</a> #}
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="row" id="grey-bar"></div>
+  <div class="container" id="typingmatches-features">
+    <div class="row " style="">
+      <div class="col-lg-4">
+        <h3>Holiday planning features</h3>
+        <div class="row">
+          <div class="col-lg-3"><img class="img-responsive" src="../images/clock.png"></div>
+          <div class="col-lg-9"><p>Lorem Ipsum jest tekstem stosowanym jako przykładowy wypełniacz w przemyśle poligraficznym.</p></div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <h3>Holiday planning features</h3>
+        <div class="row">
+          <div class="col-lg-3"><img class="img-responsive" src="../images/clock.png"></div>
+          <div class="col-lg-9"><p>Lorem Ipsum jest tekstem stosowanym jako przykładowy wypełniacz w przemyśle poligraficznym.</p></div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <h3>Holiday planning features</h3>
+        <div class="row">
+          <div class="col-lg-3"><img class="img-responsive" src="../images/clock.png"></div>
+          <div class="col-lg-9"><p>Lorem Ipsum jest tekstem stosowanym jako przykładowy wypełniacz w przemyśle poligraficznym.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% block footer %}
+  {% include('::footer.html.twig') %}
+{% endblock %}

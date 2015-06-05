@@ -1,0 +1,3 @@
+game_locale_set:
+    pattern:  /{_locale}/set-language
+    defaults: { _controller: GameLocaleBundle:Default:setLanguage }

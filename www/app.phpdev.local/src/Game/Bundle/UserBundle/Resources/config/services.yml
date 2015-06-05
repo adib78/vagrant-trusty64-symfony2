@@ -1,0 +1,4 @@
+services:
+#    game_user.example:
+#        class: Game\Bundle\UserBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

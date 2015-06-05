@@ -5,6 +5,7 @@ imports:
 framework:
     #esi:             ~
     #translator:      { fallbacks: ["%locale%"] }
+    translator:       { fallback: en }
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -61,7 +62,35 @@ doctrine:
 
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
-        auto_mapping: true
+#        auto_mapping: true
+        entity_managers:
+            default:
+                auto_mapping: true
+                mappings:
+                    gedmo_translatable:
+                        type: annotation
+                        prefix: Gedmo\Translatable\Entity
+                        dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Translatable/Entity"
+                        alias: GedmoTranslatable
+                        is_bundle: false
+                    gedmo_loggable:
+                        type: annotation
+                        prefix: Gedmo\Loggable\Entity
+                        dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Loggable/Entity"
+                        alias: GedmoLoggable # this one is optional and will default to the name set for the mapping
+                        is_bundle: false
+
+
+stof_doctrine_extensions:
+    default_locale: "%locale%"
+    translation_fallback: true
+    orm:
+        default:
+            sluggable: true
+            loggable: true
+            blameable: true
+            timestampable: true
+            translatable: true
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -70,3 +99,47 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+    encryption: "%mailer_encryption%"
+    auth_mode:  "%mailer_auth_mode%"
+
+
+#    transport: smtp
+#    host: smtp.gmail.com
+#    username:  xxxxxx@gmail.com
+#    password:  "xxxxxxxx"
+#    spool:     { type: memory }
+#    encryption: ssl
+#    auth_mode:  login
+
+fos_user:
+    db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
+    firewall_name: main
+    user_class: Game\Bundle\UserBundle\Entity\User
+    group:
+        group_class: Game\Bundle\UserBundle\Entity\Group
+
+knp_paginator:
+    template:
+      pagination: GameTypingMatchesBundle:Partials:sliding.html.twig
+
+knp_snappy:
+    pdf:
+        enabled:    true
+        binary:     /usr/local/bin/wkhtmltopdf
+        options:    []
+    image:
+        enabled:    true
+        binary:     /usr/local/bin/wkhtmltoimage
+        options:    []
+
+#white_october_breadcrumbs: ~
+white_october_breadcrumbs:
+    separator:           /
+#    separatorClass:     defaults to 'separator'
+#    listId:             defaults to 'wo-breadcrumbs'
+#    listClass:          defaults to 'breadcrumb'
+#    itemClass:          defaults to ''
+#    linkRel:            defaults to ''
+#    locale:             defaults to null, so the default locale is used
+#    translation_domain: defaults to null, so the default domain is used
+#    viewTemplate:       defaults to "WhiteOctoberBreadcrumbsBundle::breadcrumbs.html.twig"

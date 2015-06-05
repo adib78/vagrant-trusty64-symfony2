@@ -1,0 +1,12 @@
+<div class="dropdown">
+<button type="button" id="change-lang-btn" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+    {{ active }} <span class="glyphicon glyphicon-chevron-right"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu">
+        {% for item in languages %}
+            <li role="presentation">
+                <a role="menuitem" tabindex="-1" href="{{ path('game_locale_set', {'_locale': item.locale}) }}">{{ item.locale }}</a>
+            </li>
+        {% endfor %}  
+  </ul>    
+</div>

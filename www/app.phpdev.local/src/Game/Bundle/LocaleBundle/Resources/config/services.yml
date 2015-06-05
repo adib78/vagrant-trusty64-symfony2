@@ -1,0 +1,9 @@
+parameters:
+#    game_locale.example.class: Game\Bundle\LocaleBundle\Example
+
+services:
+    game_locale.locale_listener:
+        class: Game\Bundle\LocaleBundle\EventListener\LocaleListener
+        arguments: ["%kernel.default_locale%"]
+        tags:
+            - { name: kernel.event_subscriber }
