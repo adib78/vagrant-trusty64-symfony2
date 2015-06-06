@@ -1,0 +1,7 @@
+user:
+    pattern:  /
+    defaults: { _controller: "GameUserBundle:User:index" }
+
+user_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "GameUserBundle:User:show" }

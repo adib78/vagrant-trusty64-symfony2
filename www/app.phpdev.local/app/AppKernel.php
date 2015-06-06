@@ -26,7 +26,7 @@ class AppKernel extends Kernel
             new Game\Bundle\LocaleBundle\GameLocaleBundle(),
             new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
             new WhiteOctober\BreadcrumbsBundle\WhiteOctoberBreadcrumbsBundle(),
-            new Game\Bundle\TestBundle\GameTestBundle(),
+//            new Game\Bundle\TestBundle\GameTestBundle(),
 //            new Game\Bundle\ConfigurationBundle\GameConfigurationBundle(),
 
         );

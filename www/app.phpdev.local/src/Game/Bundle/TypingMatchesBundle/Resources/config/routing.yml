@@ -1,3 +1,5 @@
-game_typing_matches_homepage:
-    path:     /hello/{name}
+game_holy_time_homepage:
+    pattern:  /
     defaults: { _controller: GameTypingMatchesBundle:Default:index }
+
+        

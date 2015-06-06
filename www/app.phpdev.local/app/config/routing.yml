@@ -1,6 +1,6 @@
-game_test:
-    resource: "@GameTestBundle/Resources/config/routing.yml"
-    prefix:   /
+#game_test:
+#    resource: "@GameTestBundle/Resources/config/routing.yml"
+#    prefix:   /
 
 game_locale:
     resource: "@GameLocaleBundle/Resources/config/routing.yml"
